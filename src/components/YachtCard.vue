@@ -2,9 +2,15 @@
     <li class="yacht-card">
       <div class="yacht-image-container">
         <img :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
+        <font-awesome-icon
+          icon="fas fa-bookmark"
+          class="bookmark-icon"
+          :class="{ active: selectedBookmarks.has(yacht.id) }"
+          @click.stop="toggleBookmark(yacht.id)"
+        />
       </div>
       <div class="yacht-info">
-        <p v-if="!yacht.hidePrice" class="price-info"> Price€: {{ yacht.buyPrice.EUR }}</p>
+        <p v-if="!yacht.hidePrice" class="price-info">Price€: {{ yacht.buyPrice.EUR }}</p>
         <div class="charter-info">
           <p v-if="yacht.length">Length: {{ yacht.length.meters }} mts</p>
           <p v-if="yacht.guestsNumber">Guests: {{ yacht.guestsNumber }}</p>
@@ -17,8 +23,20 @@
   </template>
   
   <script setup lang="ts">
+  import { ref } from "vue";
   import type { Yacht } from "@/types/yacht";
-  defineProps<{ yacht: Yacht }>();
+  import { defineProps } from "vue";
+  
+  const props = defineProps<{ yacht: Yacht }>();
+  const selectedBookmarks = ref<Set<string>>(new Set());
+  
+  const toggleBookmark = (id: string) => {
+    if (selectedBookmarks.value.has(id)) {
+      selectedBookmarks.value.delete(id);
+    } else {
+      selectedBookmarks.value.add(id);
+    }
+  };
   </script>
   
   <style lang="scss" scoped>
@@ -29,6 +47,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    position: relative;
     transition: transform 0.3s ease;
   
     &:hover {
@@ -47,6 +66,24 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+  
+      .bookmark-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+  
+      /* Show bookmark icon on hover or when active */
+      &:hover .bookmark-icon,
+      .bookmark-icon.active {
+        opacity: 1;
+        color: rgba(255, 255, 255, 0.8)
       }
     }
   
@@ -99,13 +136,13 @@
     }
   }
   
-  
+  /* Responsive adjustments */
   @media (max-width: 1200px) {
     .yacht-card {
       .yacht-info {
         .charter-info {
           flex-direction: column;
-          
+  
           p {
             margin-bottom: 4px;
           }
