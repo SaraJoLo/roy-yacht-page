@@ -26,14 +26,26 @@
   </script>
   
   <style scoped>
-  button.active img {
-    opacity: 1;
-  }
-  button img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-  }
+  
+  .view-controls {
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 3px;
+        margin: 0 1px;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+
+        &.active {
+          opacity: 1;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
   </style>
   
