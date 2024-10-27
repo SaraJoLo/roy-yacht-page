@@ -78,4 +78,12 @@ const gridClass = computed(() => {
 .yacht-grid.grid-two {
   grid-template-columns: repeat(2, 1fr);
 }
+
+@media (max-width: 768px) {
+  .yacht-grid.grid-four,
+  .yacht-grid.grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
