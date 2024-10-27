@@ -1,22 +1,23 @@
 
 <template>
-  <header class="navbar">
+  <header class="titleBox">
     <div class="royBox">
       <img src="public/Roy.png" alt="Logo" />
     </div>
-    <div class="titleBox">YACHTS FOR SALE · {{ yachts.length }}</div>
   </header>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import { useFetch } from 'nuxt/app';
 const yachts = ref([]);
 </script>
 
 <style lang="scss" scoped>
-.navbar {
+.titleBox {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 10;

@@ -1,6 +1,7 @@
 <template>
     <div class="yacht-catalog">
       <header class="navbar">
+        <div class="titleBox">YACHTS FOR SALE · {{ yachts.length }}</div>
         <YachtGrid :gridView="gridView" @updateGridView="updateGridView" />
       </header>
   
@@ -21,10 +22,8 @@
   import YachtGrid from "@/components/YachtGrid.vue";
   import type { Yacht } from "@/types/yacht";
   
-
   const { data, error } = await useFetch("/api/proxy/yacht");
   const yachts = ref<Yacht[]>(data?.value?.data ?? []);
-  
   
   const gridView = ref(true);
   
@@ -41,11 +40,25 @@
   </script>
   
   <style scoped>
+ 
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    background-color: #fff;
+    z-index: 10;
+    font-size: 1rem;
+  }
+  
   .yacht-grid {
     display: grid;
     gap: 20px;
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
   }
   
   .yacht-grid.grid-four {
@@ -55,5 +68,29 @@
   .yacht-grid.grid-two {
     grid-template-columns: repeat(2, 1fr);
   }
-  </style>
   
+  @media (max-width: 1024px) {
+    .yacht-grid.grid-four,
+    .yacht-grid.grid-two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .yacht-grid.grid-four,
+    .yacht-grid.grid-two {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .titleBox {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 480px) {
+    .yacht-grid {
+    grid-template-columns: 1fr;
+  }
+  }
+</style>

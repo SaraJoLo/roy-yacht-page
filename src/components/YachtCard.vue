@@ -1,166 +1,111 @@
 <template>
-    <li class="yacht-card">
-      <div class="yacht-image-container">
-        <img :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
-      </div>
+    <div class="yacht-card">
+      <img :src="yacht.coverImage?.url" :alt="yacht.name" class="yacht-image" />
+  
       <div class="yacht-info">
-        <p v-if="!yacht.hidePrice" class="price-info"> Price€: {{ yacht.buyPrice.EUR }}</p>
-        <div class="charter-info">
-          <p v-if="yacht.length">Length: {{ yacht.length.meters }} mts</p>
-          <p v-if="yacht.guestsNumber">Guests: {{ yacht.guestsNumber }}</p>
-          <p v-if="yacht.cabinsNumber">Cabins: {{ yacht.cabinsNumber }}</p>
+        <p class="yacht-price">Price: €{{ yacht.buyPrice.EUR.toLocaleString() }}</p>
+        <div class="yacht-details">
+          <span>Length: {{ yacht.length?.meters }} m</span>
+          <span class="separator">|</span>
+          <span>Guests: {{ yacht.guestsNumber }}</span>
+          <span class="separator">|</span>
+          <span>Cabins: {{ yacht.cabinsNumber }}</span>
         </div>
-        <h3>{{ yacht.name }}</h3>
+        <h2 class="yacht-name">{{ yacht.name }}</h2>
       </div>
+  
+     
       <button class="enquiry-button">Enquiry</button>
-    </li>
+    </div>
   </template>
   
   <script setup lang="ts">
+  import { defineProps } from "vue";
   import type { Yacht } from "@/types/yacht";
-  defineProps<{ yacht: Yacht }>();
+  
+  const props = defineProps({
+    yacht: {
+      type: Object as () => Yacht,
+      required: true,
+    },
+  });
   </script>
   
-  <style lang="scss" scoped>
+  <style scoped>
+  
   .yacht-card {
-    background-color: #ffffff;
-    border-radius: 8px;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-5px);
-    }
-  
-    .yacht-image-container {
-      position: relative;
-      padding-top: 66.67%;
-      overflow: hidden;
-  
-      .yacht-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  
-    .yacht-info {
-      padding: 16px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-  
-      .price-info {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 8px;
-      }
-  
-      .charter-info {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        color: #666;
-        margin-bottom: 8px;
-  
-        p {
-          margin: 0;
-        }
-      }
-  
-      h3 {
-        font-size: 16px;
-        color: #333;
-        margin: 0;
-        margin-top: auto;
-      }
-    }
-  
-    .enquiry-button {
-      width: 100%;
-      padding: 12px;
-      background-color: #000000;
-      color: white;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      &:hover {
-        background-color: #405757;
-      }
-    }
+    transition: transform 0.2s;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
   }
   
-  
-  @media (max-width: 1200px) {
-    .yacht-card {
-      .yacht-info {
-        .charter-info {
-          flex-direction: column;
-          
-          p {
-            margin-bottom: 4px;
-          }
-        }
-      }
-    }
+  .yacht-card:hover {
+    transform: scale(1.03);
   }
   
-  @media (max-width: 992px) {
-    .yacht-card {
-      .yacht-info {
-        padding: 14px;
-  
-        .price-info {
-          font-size: 16px;
-        }
-  
-        .charter-info {
-          font-size: 13px;
-        }
-  
-        h3 {
-          font-size: 15px;
-        }
-      }
-  
-      .enquiry-button {
-        padding: 11px;
-        font-size: 15px;
-      }
-    }
+
+  .yacht-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
   
-  @media (max-width: 768px) {
-    .yacht-card {
-      .yacht-info {
-        padding: 12px;
+  .yacht-info {
+    text-align: left;
+    font-size: 0.9em;
+  }
   
-        .price-info {
-          font-size: 15px;
-        }
+  .yacht-price {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
   
-        .charter-info {
-          font-size: 12px;
-        }
+  .yacht-details {
+    display: flex;
+    gap: 5px;
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 10px;
+  }
   
-        h3 {
-          font-size: 14px;
-        }
-      }
+  .separator {
+    vertical-align: middle;
+  }
   
-      .enquiry-button {
-        padding: 10px;
-        font-size: 14px;
-      }
-    }
+  .yacht-name {
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  
+  .enquiry-button {
+    display: none;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+  }
+  
+  .yacht-card:hover .enquiry-button {
+    display: inline-block;
+  }
+  
+  .enquiry-button:hover {
+    background-color: #555;
   }
   </style>
