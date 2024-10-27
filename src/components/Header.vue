@@ -20,12 +20,13 @@ const yachts = ref([]);
   justify-content: center;
   align-items: center;
 
-  img {
-    width: 70px;
-  }
-}
+    img {
+     width: 70px;
+    }
+  
 
-.titleBox {
+  .titleBox {
   font-size: 1.2rem;
+  }
 }
 </style>

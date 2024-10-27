@@ -54,9 +54,9 @@
   
   .alert {
     padding: 0.5rem 1rem;
-    margin-top: 20px;
-    border: 1px;
-    border-radius: 4px;
+    margin-top: 1.25rem;    
+  border: 0.0625rem solid;     
+  border-radius: 0.25rem;   
     color: #666;
     font-size: 0.9rem;
   }

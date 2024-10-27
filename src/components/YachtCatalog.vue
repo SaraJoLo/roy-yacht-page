@@ -13,7 +13,7 @@
     <ul v-else-if="yachts.length > 0" :class="['yacht-grid', gridClass]">
       <YachtCard v-for="yacht in yachts" :key="yacht.id" :yacht="yacht" />
     </ul>
-    <p v-else>No hay yates disponibles.</p>
+    <p v-else>No available yachts.</p>
   </div>
 </template>
 
@@ -42,13 +42,12 @@ const gridClass = computed(() => {
 </script>
 
 <style scoped>
-/* Navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  background-color: white; /* Set to a plain white background */
+  padding: 0.625rem 0;
+  background-color: white;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -59,15 +58,15 @@ const gridClass = computed(() => {
   color: #333;
 }
 
-
 .yacht-grid-selector {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
+
 .yacht-grid {
   display: grid;
-  gap: 20px;
+  gap: 1.25rem;
   list-style-type: none;
   padding: 0;
 }
