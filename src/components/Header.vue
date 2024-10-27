@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import { useFetch } from 'nuxt/app';
 const yachts = ref([]);
 </script>
 

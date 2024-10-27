@@ -1,5 +1,9 @@
 <template>
-    <div class="view-controls">
+    <div class="view">
+        <p>| View</p>
+    </div>
+        <div class="view-controls">
+        
       <button @click="toggleGridView(true)" :class="{ active: gridView === true }">
         <img src="/GridForFour.png" alt="4 column grid" />
       </button>
