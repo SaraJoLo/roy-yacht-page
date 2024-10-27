@@ -4,7 +4,7 @@
         <img :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
       </div>
       <div class="yacht-info">
-        <p v-if="!yacht.hidePrice" class="price-info">EUR: {{ yacht.buyPrice.EUR }}</p>
+        <p v-if="!yacht.hidePrice" class="price-info"> Price€: {{ yacht.buyPrice.EUR }}</p>
         <div class="charter-info">
           <p v-if="yacht.length">Length: {{ yacht.length.meters }} mts</p>
           <p v-if="yacht.guestsNumber">Guests: {{ yacht.guestsNumber }}</p>
@@ -12,7 +12,6 @@
         </div>
         <h3>{{ yacht.name }}</h3>
       </div>
-      <!-- Botón de Enquiry -->
       <button class="enquiry-button">Enquiry</button>
     </li>
   </template>
@@ -38,7 +37,7 @@
   
     .yacht-image-container {
       position: relative;
-      padding-top: 66.67%; // 3:2 aspect ratio
+      padding-top: 66.67%;
       overflow: hidden;
   
       .yacht-image {
@@ -100,7 +99,7 @@
     }
   }
   
-  // Responsive design
+  
   @media (max-width: 1200px) {
     .yacht-card {
       .yacht-info {

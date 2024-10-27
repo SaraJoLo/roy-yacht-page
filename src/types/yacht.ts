@@ -1,4 +1,3 @@
-// src/types/yacht.ts
 export interface Yacht {
     id: string;
     permalink: string;
