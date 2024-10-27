@@ -1,10 +1,9 @@
 
 <template>
-  <header class="navbar">
+  <header >
     <div class="royBox">
       <img src="public/Roy.png" alt="Logo" />
     </div>
-    <div class="titleBox">YACHTS FOR SALE · {{ yachts.length }}</div>
   </header>
 </template>
 
@@ -15,15 +14,6 @@ const yachts = ref([]);
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-  display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
 .royBox {
   display: flex;

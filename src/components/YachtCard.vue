@@ -44,9 +44,9 @@
   <style lang="scss" scoped>
   .yacht-card {
     background-color: #ffffff;
+    margin: 0px;
     border-radius: 1px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -87,6 +87,7 @@
       position: relative;
       padding-top: 66.67%;
       overflow: hidden;
+      margin:0px;
   
       .yacht-image {
         position: absolute;
@@ -116,7 +117,8 @@
     }
   
     .yacht-info {
-      padding: 16px;
+      padding: 10px;
+      margin: 0px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -124,7 +126,7 @@
       .price-info {
         font-size: 16px;
         color: #333;
-        margin-bottom: 8px;
+        margin: 0px;
       }
   
       .charter-info {
@@ -133,7 +135,6 @@
         gap: 10px;
         font-size: 14px;
         color: #666;
-        margin-top: 5px;
   
         p {
           margin: 0;
@@ -144,7 +145,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: auto;
+        margin-top: 25px;
   
         .yacht-name {
           font-size: 16px;
