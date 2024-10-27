@@ -16,9 +16,11 @@
           <p v-if="yacht.guestsNumber">Guests: {{ yacht.guestsNumber }}</p>
           <p v-if="yacht.cabinsNumber">Cabins: {{ yacht.cabinsNumber }}</p>
         </div>
-        <h3>{{ yacht.name }}</h3>
+        <div class="name-enquiry">
+          <h3 class="yacht-name">{{ yacht.name }}</h3>
+          <button class="enquiry-button">Enquiry</button>
+        </div>
       </div>
-      <button class="enquiry-button">Enquiry</button>
     </li>
   </template>
   
@@ -42,16 +44,43 @@
   <style lang="scss" scoped>
   .yacht-card {
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 1px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
   
     &:hover {
       transform: translateY(-5px);
+    }
+    
+    
+    .enquiry-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 2px 8px;
+          width: 70px;
+          height: 40px;
+          color: #fff;
+          border: none;
+          background-color: #0B2020;
+          opacity: 0;
+          border-radius: 1px;
+          font-size: 12px;
+          cursor: pointer;
+          transition: opacity 0.3s ease;
+          position: absolute;
+          bottom: 10px;
+          right: 10px; 
+        }
+        
+        &:hover .enquiry-button {
+         opacity:1;
+        }
+  
     }
   
     .yacht-image-container {
@@ -79,11 +108,10 @@
         cursor: pointer;
       }
   
-      /* Show bookmark icon on hover or when active */
       &:hover .bookmark-icon,
       .bookmark-icon.active {
         opacity: 1;
-        color: rgba(255, 255, 255, 0.8)
+        color: rgba(255, 255, 255, 0.8);
       }
     }
   
@@ -94,49 +122,40 @@
       flex-direction: column;
   
       .price-info {
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 16px;
         color: #333;
         margin-bottom: 8px;
       }
   
       .charter-info {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
         font-size: 14px;
         color: #666;
-        margin-bottom: 8px;
+        margin-top: 5px;
   
         p {
           margin: 0;
         }
       }
   
-      h3 {
-        font-size: 16px;
-        color: #333;
-        margin: 0;
+      .name-enquiry {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-top: auto;
-      }
-    }
   
-    .enquiry-button {
-      width: 100%;
-      padding: 12px;
-      background-color: #000000;
-      color: white;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+        .yacht-name {
+          font-size: 16px;
+          color: #333;
+          margin: 0;
+        }
   
-      &:hover {
-        background-color: #405757;
-      }
-    }
-  }
+}
+}
+
   
-  /* Responsive adjustments */
   @media (max-width: 1200px) {
     .yacht-card {
       .yacht-info {
@@ -164,14 +183,14 @@
           font-size: 13px;
         }
   
-        h3 {
+        .yacht-name {
           font-size: 15px;
         }
-      }
   
-      .enquiry-button {
-        padding: 11px;
-        font-size: 15px;
+        .enquiry-button {
+          padding: 8px 12px;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -189,15 +208,15 @@
           font-size: 12px;
         }
   
-        h3 {
+        .yacht-name {
           font-size: 14px;
         }
-      }
   
-      .enquiry-button {
-        padding: 10px;
-        font-size: 14px;
+        .enquiry-button {
+          padding: 8px 10px;
+          font-size: 13px;
+        }
       }
-    }
   }
+}
   </style>

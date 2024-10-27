@@ -7,6 +7,6 @@ export default defineNuxtConfig({
   build: {
     transpile: [],
   },
-
+  css: ['~/assets/main.scss'],
   compatibilityDate: '2024-10-27'
 });
