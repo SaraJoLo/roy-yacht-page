@@ -125,7 +125,7 @@
   
       .price-info {
         font-size: 16px;
-        color: #333;
+        color: #666;
         margin: 0px;
       }
   
@@ -134,7 +134,7 @@
         flex-wrap: wrap;
         gap: 10px;
         font-size: 14px;
-        color: #666;
+        color: #333;
   
         p {
           margin: 0;
