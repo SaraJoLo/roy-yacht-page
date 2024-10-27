@@ -2,7 +2,7 @@ import { build } from "nuxt";
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
-  srcDir: 'src/',
+  srcDir: 'src',
   pages: true,
   build: {
     transpile: [],
