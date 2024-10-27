@@ -29,33 +29,27 @@
   };
   </script>
   
-  <style scoped>
-  .view{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    position: sticky;
-  }
-  .view-controls {
-      button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 3px;
-        margin: 0 1px;
-        opacity: 0.5;
-        transition: opacity 0.3s ease;
+<style scoped>
 
-        &.active {
-          opacity: 1;
-        }
-
-        img {
-          width: 24px;
-          height: 24px;
-        }
+.view-controls {
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.1875rem;
+      margin: 0 0.0625rem;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+  
+      &.active {
+        opacity: 1;
+      }
+  
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
       }
     }
-  </style>
+}
+</style>
   
