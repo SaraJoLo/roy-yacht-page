@@ -8,7 +8,7 @@
     </header>
 
     <div v-if="error">
-      <p>Error al cargar los yates.</p>
+      <p>Error.</p>
     </div>
     <ul v-else-if="yachts.length > 0" :class="['yacht-grid', gridClass]">
       <YachtCard v-for="yacht in yachts" :key="yacht.id" :yacht="yacht" />
