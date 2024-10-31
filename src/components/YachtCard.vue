@@ -79,6 +79,7 @@
     &:hover .enquiry-button {
       opacity: 1;
       @media screen and (max-width: 768px) {
+        opacity: 1;
         background-color: rgba(64, 87, 87, 1);
         
       }
@@ -129,7 +130,8 @@
   
     .price-info {
       font-size: 1rem;
-      color: #858585;
+      color: rgba(133, 133, 133, 1);
+      font-weight: 400;
       margin: 0;
     }
   
@@ -139,6 +141,7 @@
       gap: 0.625rem;
       font-size: 0.875rem;
       color: #4E4E4E;
+      font-weight: 400;
   
       p {
         margin: 0;
@@ -155,6 +158,7 @@
         font-size: 1.25rem;
         color: rgba(9, 25, 25, 1);
         line-height: 30px;
+        font-weight: 300;
         margin: 0;
       }
     }
@@ -164,7 +168,7 @@
     .yacht-card {
       .yacht-info {
         .charter-info {
-          flex-direction: column;
+          flex-direction: row;
   
           p {
             margin-bottom: 0.25rem;
@@ -181,19 +185,22 @@
   
         .price-info {
           font-size: 1rem;
+          line-height: 1.75rem;
         }
   
         .charter-info {
-          font-size: 0.8125rem;
+          font-size: 1rem;
         }
   
         .yacht-name {
-          font-size: 0.9375rem;
+          font-size: 1.25rem;
+          line-height: 1.88rem;
         }
   
         .enquiry-button {
-          padding: 0.5rem 0.75rem;
-          font-size: 0.875rem;
+          width: 5.5rem;
+          height: 2.75rem;
+          font-size: 1rem;
         }
       }
     }

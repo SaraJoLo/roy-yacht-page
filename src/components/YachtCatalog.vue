@@ -64,18 +64,20 @@ const gridClass = computed(() => {
 
 .titleBox {
   font-size: 1.2rem;
+  font-weight: 400;
   color: rgba(50, 51, 73, 1);
 
   &::before {
-    content: "YACHTS FOR SALE";
+    content: "YACHTS FOR SALE · ";
   }
-  &::after {
-    content: " · " attr(data-count) " Yachts";
-  }
+ 
   @media (max-width: 768px) {
     &::before {
       content: "BUY ";
     }
+    &::after {
+    content: " · " attr(data-count) " Yachts";
+  }
   }
 }
 
