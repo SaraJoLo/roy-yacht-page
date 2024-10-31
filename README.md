@@ -1,4 +1,4 @@
-# NorthStudio - ROY YACHT PAGE
+ROY YACHT PAGE
 
 ### Project Description
 
