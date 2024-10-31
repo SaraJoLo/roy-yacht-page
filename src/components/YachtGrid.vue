@@ -30,7 +30,9 @@
   </script>
   
 <style scoped>
-
+*{
+  color:#676778;
+}
 .view-controls {
     button {
       background: none;

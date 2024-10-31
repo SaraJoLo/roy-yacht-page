@@ -1,7 +1,7 @@
 <template>
   <div class="yacht-catalog">
     <header class="navbar">
-      <div class="titleBox">YACHTS FOR SALE · {{ yachts.length }}</div>
+      <div class="titleBox">{{ yachts.length }}</div>
       <div class="yacht-grid-selector">
         <YachtGrid :gridView="gridView" @updateGridView="updateGridView" class="gridClass" />
       </div>
@@ -46,29 +46,55 @@ const gridClass = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 0;
+  padding: 0;
   background-color: white;
   position: sticky;
   top: 0;
   z-index: 10;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-left: 12px;
+    gap: 0.625rem;
+    
+  }
 }
 
 .titleBox {
   font-size: 1.2rem;
-  color: #333;
+  color: rgba(50, 51, 73, 1);
+
+  &::before {
+    content: "YACHTS FOR SALE";
+  }
+  &::after {
+    content: " · " attr(data-count) " Yachts";
+  }
+  @media (max-width: 768px) {
+    &::before {
+      content: "BUY ";
+    }
+  }
 }
 
 .yacht-grid-selector {
   display: flex;
   align-items: center;
   gap: 0.625rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .yacht-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.1rem;
   list-style-type: none;
   padding: 0;
+  
 }
 
 .yacht-grid.grid-four {

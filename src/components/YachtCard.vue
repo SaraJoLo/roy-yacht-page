@@ -13,8 +13,8 @@
         <p v-if="!yacht.hidePrice" class="price-info">Price € {{ yacht.buyPrice.EUR }}</p>
         <div class="charter-info">
           <p v-if="yacht.length">Length: {{ yacht.length.meters }} mts</p>
-          <p v-if="yacht.guestsNumber">Guests: {{ yacht.guestsNumber }}</p>
-          <p v-if="yacht.cabinsNumber">Cabins: {{ yacht.cabinsNumber }}</p>
+          <p v-if="yacht.guestsNumber">| Guests: {{ yacht.guestsNumber }}</p>
+          <p v-if="yacht.cabinsNumber">| Cabins: {{ yacht.cabinsNumber }}</p>
         </div>
         <div class="name-enquiry">
           <h3 class="yacht-name">{{ yacht.name }}</h3>
@@ -60,15 +60,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0.125rem 0.5rem;
-      width: 4.375rem;
-      height: 2.5rem;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      width: 5.5rem;
+      height: 2.75rem;
       color: #fff;
       border: none;
       background-color: #0B2020;
       opacity: 0;
       border-radius: 0.0625rem;
-      font-size: 0.75rem;
+      font-size: 1rem;
       cursor: pointer;
       transition: opacity 0.3s ease;
       position: absolute;
@@ -78,7 +78,13 @@
     
     &:hover .enquiry-button {
       opacity: 1;
+      @media screen and (max-width: 768px) {
+        background-color: rgba(64, 87, 87, 1);
+        
+      }
     }
+    
+    
 }
   
 .yacht-image-container {
@@ -123,7 +129,7 @@
   
     .price-info {
       font-size: 1rem;
-      color: #666;
+      color: #858585;
       margin: 0;
     }
   
@@ -132,7 +138,7 @@
       flex-wrap: wrap;
       gap: 0.625rem;
       font-size: 0.875rem;
-      color: #666;
+      color: #4E4E4E;
   
       p {
         margin: 0;
@@ -146,8 +152,9 @@
       margin-top: 1.5625rem;
   
       .yacht-name {
-        font-size: 1rem;
-        color: #333;
+        font-size: 1.25rem;
+        color: rgba(9, 25, 25, 1);
+        line-height: 30px;
         margin: 0;
       }
     }
