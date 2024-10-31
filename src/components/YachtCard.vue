@@ -168,6 +168,7 @@
     .yacht-card {
       .yacht-info {
         .charter-info {
+          display: flex;
           flex-direction: row;
   
           p {
